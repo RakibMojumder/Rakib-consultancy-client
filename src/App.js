@@ -1,15 +1,12 @@
 
-import { Button } from 'flowbite-react';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import router from './Routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <Button color="purple">
-          Purple
-        </Button>
-      </div>
+    <div className="w-[90%] lg:w-[1100px] mx-auto">
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
