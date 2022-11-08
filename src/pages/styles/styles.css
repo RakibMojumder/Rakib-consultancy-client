@@ -1,0 +1,49 @@
+.service-cart {
+    transition: .3s;
+}
+
+.service-cart:hover {
+    transform: scale(1.1);
+}
+
+.hover-animate-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 36%;
+    background: #00F0B5;
+    border-radius: 9999px;
+    z-index: -1;
+    transition: .4s;
+}
+
+.hover-animate-btn:hover::after {
+    width: 100%;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-field {
+    width: 100%;
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid #06a47da3;
+    padding: 5px 0;
+    background: transparent;
+    font-size: 1em;
+    transition: 0.3s ease;
+}
+
+.input-field::placeholder {
+    color: #010101f7;
+}
+
+.input-field:focus {
+    border: none;
+    outline: transparent;
+    border-bottom: 1px solid #06a47da3;
+}
