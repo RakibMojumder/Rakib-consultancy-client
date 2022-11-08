@@ -28,7 +28,10 @@ const Register = () => {
         console.log(user);
         setError("");
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        console.error(e);
+        setError(e.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -36,8 +39,12 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setError("");
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        console.error(e);
+        setError(e.message);
+      });
   };
 
   return (
@@ -63,6 +70,7 @@ const Register = () => {
                   name="fname"
                   placeholder="First Name"
                   autoComplete="off"
+                  required
                 />
               </div>
               <div className="input-box w-[46%]">
@@ -72,6 +80,7 @@ const Register = () => {
                   name="lname"
                   placeholder="Last Name"
                   autoComplete="off"
+                  required
                 />
               </div>
             </div>
@@ -82,6 +91,7 @@ const Register = () => {
                 name="email"
                 placeholder="Email"
                 autoComplete="off"
+                required
               />
             </div>
             <div className="input-box mb-5 w-full">
@@ -91,6 +101,7 @@ const Register = () => {
                 name="photoURL"
                 placeholder="photoURL"
                 autoComplete="off"
+                required
               />
             </div>
             <div className="input-box mb-5 w-full">
@@ -99,6 +110,7 @@ const Register = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
+                required
               />
             </div>
             <div className="input-box mb-5 w-full">
@@ -107,6 +119,7 @@ const Register = () => {
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm Password"
+                required
               />
             </div>
 
@@ -115,7 +128,7 @@ const Register = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="px-9 py-1 text-white bg-green-500"
+                className="w-[170px] py-2 uppercase text-white text-sm font-bold bg-[#00F0B5] rounded-full shadow-md transition duration-700 hover:bg-white hover:text-[#00F0B5]"
               >
                 Register
               </button>
@@ -123,9 +136,9 @@ const Register = () => {
           </form>
           <div className="social-account mt-8 mb-4">
             <div className="flex justify-between items-center">
-              <div className="h-[1px] w-[25%] bg-slate-700"></div>
+              <div className="h-[1px] w-[27%] bg-slate-400"></div>
               <div>Sign in with social account</div>
-              <div className="h-[1px] w-[25%] bg-slate-700"></div>
+              <div className="h-[1px] w-[27%] bg-slate-400"></div>
             </div>
             <div className="flex justify-center items-center mt-3">
               <FaGoogle onClick={handleGoogleSignIn} className="text-3xl" />
@@ -136,7 +149,7 @@ const Register = () => {
           <p className="text-center">
             Already have an account?{" "}
             <Link
-              className="text-green-600 font-semibold hover:underline"
+              className="text-[#25be98] font-semibold hover:underline"
               to="/login"
             >
               Log in

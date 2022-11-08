@@ -26,17 +26,32 @@ const Header = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/services">Services</NavLink>
+        <NavLink className="font-semibold text-[15px]" to="/">
+          Home
+        </NavLink>
+        <NavLink className="font-semibold text-[15px]" to="/services">
+          Services
+        </NavLink>
 
         {user && user.email ? (
           <>
-            <NavLink to="/addService">Add Service</NavLink>
-            <NavLink to="/myReview">My Reviews</NavLink>
-            <button onClick={handleLogOut}>log out</button>
+            <NavLink className="font-semibold text-[15px]" to="/addService">
+              Add Service
+            </NavLink>
+            <NavLink className="font-semibold text-[15px]" to="/myReview">
+              My Reviews
+            </NavLink>
+            <button
+              className="font-semibold text-[16px]"
+              onClick={handleLogOut}
+            >
+              log out
+            </button>
           </>
         ) : (
-          <NavLink to="/login">log in</NavLink>
+          <NavLink className="font-semibold text-[15px]" to="/login">
+            log in
+          </NavLink>
         )}
       </Navbar.Collapse>
     </Navbar>
