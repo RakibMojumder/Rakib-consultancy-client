@@ -30,7 +30,11 @@ const Header = () => {
         <NavLink to="/services">Services</NavLink>
 
         {user && user.email ? (
-          <button onClick={handleLogOut}>log out</button>
+          <>
+            <NavLink to="/addService">Add Service</NavLink>
+            <NavLink to="/myReview">My Reviews</NavLink>
+            <button onClick={handleLogOut}>log out</button>
+          </>
         ) : (
           <NavLink to="/login">log in</NavLink>
         )}
