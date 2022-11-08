@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../assets/img/6769264_60111-removebg-preview.png";
 import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Login = () => {
-  const { googleLogIn, logIn } = useContext(AuthContext);
+  const { googleSignIn, logIn } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,11 +32,12 @@ const Login = () => {
 
   // Google Log in
   const handleGoogleLogIn = () => {
-    googleLogIn()
+    googleSignIn()
       .then((result) => {
         const user = result.user;
         console.log(user);
         setError("");
+        navigate(from, { replace: true });
       })
       .catch((e) => {
         console.error(e);

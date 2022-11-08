@@ -32,22 +32,17 @@ const Header = () => {
         <NavLink className="font-semibold text-[15px]" to="/services">
           Services
         </NavLink>
+        <NavLink className="font-semibold text-[15px]" to="/addService">
+          Add Service
+        </NavLink>
+        <NavLink className="font-semibold text-[15px]" to="/myReview">
+          My Reviews
+        </NavLink>
 
         {user && user.email ? (
-          <>
-            <NavLink className="font-semibold text-[15px]" to="/addService">
-              Add Service
-            </NavLink>
-            <NavLink className="font-semibold text-[15px]" to="/myReview">
-              My Reviews
-            </NavLink>
-            <button
-              className="font-semibold text-[16px]"
-              onClick={handleLogOut}
-            >
-              log out
-            </button>
-          </>
+          <button className="font-semibold text-[16px]" onClick={handleLogOut}>
+            log out
+          </button>
         ) : (
           <NavLink className="font-semibold text-[15px]" to="/login">
             log in
