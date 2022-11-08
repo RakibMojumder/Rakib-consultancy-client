@@ -5,7 +5,7 @@ import img from "../assets/img/6769264_60111-removebg-preview.png";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Register = () => {
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const { createUser, googleSignIn, gitHubSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +43,19 @@ const Register = () => {
       })
       .catch((e) => {
         console.error(e);
+        setError(e.message);
+      });
+  };
+
+  // Github log in
+  const handleGithubLogIn = () => {
+    gitHubSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => {
+        console.log(e);
         setError(e.message);
       });
   };
@@ -142,7 +155,7 @@ const Register = () => {
             </div>
             <div className="flex justify-center items-center mt-3">
               <FaGoogle onClick={handleGoogleSignIn} className="text-3xl" />
-              <FaGithub className="text-3xl mx-3" />
+              <FaGithub onClick={handleGithubLogIn} className="text-3xl mx-3" />
               <FaFacebook className="text-3xl" />
             </div>
           </div>

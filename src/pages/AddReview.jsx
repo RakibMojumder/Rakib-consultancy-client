@@ -1,8 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const AddReview = ({ id }) => {
   const { user } = useContext(AuthContext);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [isReadOnly, setIsReadOnly] = useState(true);
+
+  useEffect(() => {
+    if (user) {
+      setIsDisabled(false);
+      setIsReadOnly(false);
+    } else {
+      setIsDisabled(true);
+      setIsReadOnly(true);
+    }
+  }, [user]);
+
   const handleAddReview = (e) => {
     e.preventDefault();
     const review = e.target.review.value;
@@ -13,6 +26,7 @@ const AddReview = ({ id }) => {
       email: user.email,
       img: user.photoURL,
       review: review,
+      date: new Date().toLocaleTimeString(),
     };
 
     fetch("http://localhost:5000/reviews", {
@@ -30,9 +44,17 @@ const AddReview = ({ id }) => {
 
   return (
     <div className="review-section mt-14">
-      <h3 className="text-xl text-slate-700 font-semibold mb-3">
-        Add a review
-      </h3>
+      {user ? (
+        <h3 className="text-xl text-slate-700 font-semibold mb-3">
+          Add a review
+        </h3>
+      ) : (
+        <h2 className="uppercase text-xs mb-2">
+          Please log in to add a review{" "}
+          <span className="text-2xl font-semibold text-red-500">*</span>
+        </h2>
+      )}
+
       <form onSubmit={handleAddReview}>
         <textarea
           className="rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
@@ -40,12 +62,18 @@ const AddReview = ({ id }) => {
           placeholder="Type here"
           cols="60"
           rows="3"
+          readOnly={isReadOnly}
         ></textarea>
         <button
           type="submit"
-          className="w-[150px] block py-2 mt-4 uppercase text-white text-sm font-bold bg-[#00F0B5] rounded-full shadow-md transition duration-700 hover:bg-white hover:text-[#00F0B5]"
+          disabled={isDisabled}
+          className={`w-[150px] block py-2 mt-4 uppercase text-sm font-bold rounded-full shadow-md text-slate-500 ${
+            isDisabled
+              ? "bg-[#00F0B5]"
+              : "text-white bg-[#00F0B5] transition duration-700 hover:bg-white hover:text-[#00F0B5]"
+          }`}
         >
-          Add review
+          {isDisabled ? "Disabled" : "Add review"}
         </button>
       </form>
     </div>

@@ -9,7 +9,7 @@ const ServiceDetails = () => {
   console.log(service);
 
   return (
-    <div className="grid grid-cols-12">
+    <div className="grid grid-cols-12 my-20">
       <div className="col-span-2"></div>
       <div className="col-span-8">
         <div className="service-img">
@@ -23,9 +23,9 @@ const ServiceDetails = () => {
           </p>
         </div>
 
-        <div className="h-[2px] mt-20 bg-slate-500"></div>
+        <div className="h-[1px] mt-20 bg-slate-500"></div>
         <AddReview id={_id} />
-        <div className="h-[2px] mt-20 bg-slate-500"></div>
+        <div className="h-[1px] mt-20 bg-slate-500"></div>
 
         <Review id={_id} />
       </div>

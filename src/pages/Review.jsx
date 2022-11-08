@@ -31,7 +31,10 @@ const Review = ({ id }) => {
         </h1>
       )}
       {reviews.map((review) => (
-        <div key={review._id} className="mb-8 p-8 border rounded-lg">
+        <div
+          key={review._id}
+          className="mb-8 p-8 bg-green-50 border rounded-lg"
+        >
           <div className="user-information flex">
             <div className="user-img w-14 mr-4 items-center">
               {review?.img ? (
@@ -45,7 +48,7 @@ const Review = ({ id }) => {
               )}
             </div>
             <div className="review-information">
-              <h2>{review?.name}</h2>
+              <h2 className="font-bold">{review?.name}</h2>
               <p>{review.email}</p>
             </div>
           </div>

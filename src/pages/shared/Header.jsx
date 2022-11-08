@@ -1,15 +1,16 @@
 import { Button, Navbar } from "flowbite-react";
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/iconmonstr-building-33.svg";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogOut = () => {
     logOut()
-      .then({})
+      .then(navigate("/"))
       .catch((e) => console.error(e));
   };
 

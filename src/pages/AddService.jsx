@@ -99,7 +99,7 @@ const AddService = () => {
       ) : (
         <div className="text-center">
           <h3 className="text-xl text-slate-700 mb-2 font-bold uppercase">
-            oppss you are not logged in 🙂
+            oppss!! <br /> you are not logged in 🙂
           </h3>
           <h1 className="text-4xl font-bold text-slate-700 uppercase mb-5">
             You need to log in to add service
@@ -109,7 +109,7 @@ const AddService = () => {
             state={{ from: location }}
             replace
             type="submit"
-            className="px-14 py-2 uppercase text-white text-sm font-bold bg-[#00F0B5] rounded-full shadow-md transition duration-700 hover:bg-white hover:text-[#00F0B5]"
+            className="px-14 py-2 uppercase text-white text-sm font-bold bg-[#00F0B5] rounded-full shadow-md transition duration-700 hover:bg-white hover:text-[#00F0B5] hover:border hover:border-[#00F0B5]"
           >
             Log in
           </Link>

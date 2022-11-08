@@ -5,7 +5,7 @@ import "./styles/styles.css";
 const ServiceCart = ({ service }) => {
   const { _id, img, title, fee, description } = service;
   return (
-    <div className="service-cart h-[428px] rounded-md shadow-md bg-green-100 relative">
+    <div className="service-cart h-[428px] rounded-md shadow-md bg-green-50 relative">
       <img
         src={img}
         alt=""
