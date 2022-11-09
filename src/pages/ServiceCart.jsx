@@ -6,7 +6,7 @@ import { PhotoView } from "react-photo-view";
 const ServiceCart = ({ service }) => {
   const { _id, img, title, fee, description } = service;
   return (
-    <div className="service-cart h-[390px] lg:h-[428px] rounded-md shadow-md bg-green-50 relative">
+    <div className="service-cart h-[390px] lg:h-[450px] rounded-md shadow-md bg-green-50 relative">
       <PhotoView src={img}>
         <img
           src={img}

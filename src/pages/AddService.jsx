@@ -32,7 +32,7 @@ const AddService = () => {
   };
 
   return (
-    <div className="md:w-4/5 lg:w-3/5 min-h-screen mx-auto flex justify-center items-center my-20">
+    <div className="md:w-4/5 lg:w-3/5 min-h-screen mx-auto flex justify-center items-center my-10 md:my-20">
       <div className="w-full p-7 bg-green-100 rounded-2xl">
         <h1 className="text-center text-3xl font-bold text-slate-700 mt-6 mb-14 uppercase">
           Add New Service

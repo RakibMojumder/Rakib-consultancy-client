@@ -37,11 +37,9 @@ const UpdateReview = ({ review, reviews, setReviews, show, setShow }) => {
     <div className="mt-8 ">
       <form onSubmit={handleUpdateReview}>
         <textarea
-          className="rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
+          className="h-20 md:h-32 w-80 md:w-[500px] rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
           name="review"
           placeholder="Edit your review"
-          cols="60"
-          rows="3"
           required
         ></textarea>
         <button
