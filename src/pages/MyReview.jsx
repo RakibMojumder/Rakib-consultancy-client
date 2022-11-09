@@ -17,8 +17,8 @@ const MyReview = () => {
 
   return (
     <div className="my-20">
-      <h1 className="text-2xl font-semibold my-5 uppercase">
-        You have give{" "}
+      <h1 className="text-2xl font-semibold my-5 uppercase tracking-wider">
+        You give{" "}
         <span className="text-green-400 text-3xl font-extrabold">
           {reviews.length}
         </span>{" "}

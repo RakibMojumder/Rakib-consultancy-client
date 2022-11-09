@@ -3,7 +3,7 @@ import React from "react";
 
 const ReviewCart = ({ review }) => {
   return (
-    <div key={review._id} className="mb-8 p-8 bg-green-50 border rounded-lg">
+    <div key={review._id} className="mb-8 p-8 bg-gray-100 border rounded-lg">
       <div className="flex justify-between items-center">
         <div className="user-information flex">
           <div className="user-img w-14 mr-4 items-center">

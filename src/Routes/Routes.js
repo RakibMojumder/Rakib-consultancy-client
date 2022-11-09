@@ -1,7 +1,9 @@
 import AddService from "../pages/AddService";
+import Blog from "../pages/Blog";
 import MyReview from "../pages/MyReview";
 import Register from "../pages/Register";
 import ServiceDetails from "../pages/ServiceDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layout/Main");
@@ -29,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services />
+            },
+            {
+                path: 'blog',
+                element: <Blog />
             },
             {
                 path: '/services/:id',

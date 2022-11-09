@@ -43,7 +43,7 @@ const AddReview = ({ id }) => {
   };
 
   return (
-    <div className="review-section mt-14">
+    <div className="review-section my-14">
       {user ? (
         <h3 className="text-xl text-slate-700 font-semibold mb-3">
           Add a review
