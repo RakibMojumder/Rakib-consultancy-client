@@ -1,6 +1,7 @@
 import { Button, Navbar } from "flowbite-react";
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../../assets/logo/iconmonstr-building-33.svg";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -10,7 +11,10 @@ const Header = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(navigate("/"))
+      .then(() => {
+        navigate("/");
+        toast.success("You have logged out now");
+      })
       .catch((e) => console.error(e));
   };
 

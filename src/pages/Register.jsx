@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import img from "../assets/img/6769264_60111-removebg-preview.png";
 import { AuthContext } from "../contexts/AuthProvider";
 import HashLoader from "react-spinners/HashLoader";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { createUser, googleSignIn, gitHubSignIn } = useContext(AuthContext);
@@ -38,6 +39,7 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         setError("");
+        toast.success("Successfully register your account");
       })
       .catch((e) => {
         console.error(e);
@@ -51,6 +53,7 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         setError("");
+        toast.success("Successfully register your account");
       })
       .catch((e) => {
         console.error(e);
@@ -64,6 +67,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast.success("Successfully register your account");
       })
       .catch((e) => {
         console.log(e);

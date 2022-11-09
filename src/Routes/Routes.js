@@ -1,5 +1,6 @@
 import AddService from "../pages/AddService";
 import Blog from "../pages/Blog";
+import ErrorPage from "../pages/ErrorPage";
 import MyReview from "../pages/MyReview";
 import Register from "../pages/Register";
 import ServiceDetails from "../pages/ServiceDetails";
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',

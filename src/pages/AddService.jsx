@@ -1,11 +1,7 @@
-import React, { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { AuthContext } from "../contexts/AuthProvider";
+import React from "react";
+import { toast } from "react-toastify";
 
 const AddService = () => {
-  const { user } = useContext(AuthContext);
-  const location = useLocation();
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -26,11 +22,14 @@ const AddService = () => {
       body: JSON.stringify(service),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        toast.success("Successfully add a new service");
+      });
   };
 
   return (
-    <div className="w-3/5 min-h-screen mx-auto flex justify-center items-center">
+    <div className="w-3/5 min-h-screen mx-auto flex justify-center items-center my-20">
       <div className="w-full p-7 bg-green-100 rounded-2xl">
         <h1 className="text-center text-3xl font-bold text-slate-700 mt-6 mb-14 uppercase">
           Add New Service
