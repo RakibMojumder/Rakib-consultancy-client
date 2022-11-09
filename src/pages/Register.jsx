@@ -6,6 +6,7 @@ import { AuthContext } from "../contexts/AuthProvider";
 import HashLoader from "react-spinners/HashLoader";
 import { toast } from "react-toastify";
 import useTitle from "../Hooks/useTitle";
+import { jwtVerifyApi } from "../utilities/jwtApi";
 
 const Register = () => {
   useTitle("Register");
@@ -46,6 +47,7 @@ const Register = () => {
         handleUpdateUserProfile(displayName, photoURL);
         toast.success("Successfully register your account");
         form.reset();
+        jwtVerifyApi(user);
         navigate("/");
       })
       .catch((e) => {
@@ -61,6 +63,7 @@ const Register = () => {
         console.log(user);
         setError("");
         toast.success("Successfully register your account");
+        jwtVerifyApi(user);
       })
       .catch((e) => {
         console.error(e);
@@ -75,6 +78,7 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         toast.success("Successfully register your account");
+        jwtVerifyApi(user);
       })
       .catch((e) => {
         console.log(e);

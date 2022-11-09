@@ -15,7 +15,7 @@ const Header = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        navigate("/");
+        navigate("/login");
         toast.success("You have logged out now");
       })
       .catch((e) => console.error(e));
@@ -26,7 +26,7 @@ const Header = () => {
       <Navbar.Brand href="https://flowbite.com/">
         <img
           src={logo}
-          className="mr-3 h-6 md:hidden lg:h-9"
+          className="mr-3 h-6 md:hidden lg:block lg:h-9"
           alt="Flowbite Logo"
         />
         <span className="self-center whitespace-nowrap md:text-base lg:text-2xl font-bold dark:text-white uppercase">

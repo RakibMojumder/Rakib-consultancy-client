@@ -35,9 +35,24 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
         setError("");
         toast.success("You successfully logged in");
         form.reset();
+
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("user-access-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((e) => {
         console.error(e);
@@ -52,8 +67,20 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setError("");
-        navigate(from, { replace: true });
         toast.success("You successfully logged in");
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("user-access-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((e) => {
         console.error(e);
