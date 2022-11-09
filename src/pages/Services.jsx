@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ServiceCart from "./ServiceCart";
 import HashLoader from "react-spinners/HashLoader";
+import useTitle from "../Hooks/useTitle";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const Services = () => {
+  useTitle("Services");
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,9 +28,11 @@ const Services = () => {
 
   return (
     <div className="grid gap-7 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-20">
-      {services.map((service) => (
-        <ServiceCart key={service._id} service={service} />
-      ))}
+      <PhotoProvider>
+        {services.map((service) => (
+          <ServiceCart key={service._id} service={service} />
+        ))}
+      </PhotoProvider>
     </div>
   );
 };

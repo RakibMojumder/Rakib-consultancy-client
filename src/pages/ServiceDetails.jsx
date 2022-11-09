@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
+import useTitle from "../Hooks/useTitle";
 import AddReview from "./AddReview";
 import Review from "./Review";
 
 const ServiceDetails = () => {
+  useTitle("Service Details");
   const { user } = useContext(AuthContext);
   const service = useLoaderData().data;
   const location = useLocation();
@@ -15,7 +17,7 @@ const ServiceDetails = () => {
   return (
     <div className="grid grid-cols-12 my-20">
       <div className="col-span-2"></div>
-      <div className="col-span-8">
+      <div className="col-span-12 md:col-span-8">
         <div className="service-img">
           <img className="w-full h-[330px]" src={img} alt="" />
         </div>

@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import errorImg from "../assets/error/error-img.webp";
+import useTitle from "../Hooks/useTitle";
 
 const ErrorPage = () => {
+  useTitle("Not Found");
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
       <img className="h-80" src={errorImg} alt="" />

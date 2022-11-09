@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/styles.css";
+import { PhotoView } from "react-photo-view";
 
 const ServiceCart = ({ service }) => {
   const { _id, img, title, fee, description } = service;
   return (
-    <div className="service-cart h-[428px] rounded-md shadow-md bg-green-50 relative">
-      <img
-        src={img}
-        alt=""
-        className="object-cover object-center w-full rounded-t-md h-44"
-      />
+    <div className="service-cart h-[390px] lg:h-[428px] rounded-md shadow-md bg-green-50 relative">
+      <PhotoView src={img}>
+        <img
+          src={img}
+          alt=""
+          className="object-cover object-center w-full rounded-t-md h-44"
+        />
+      </PhotoView>
       <div className="flex flex-col justify-between p-3">
         <div className="space-y-1">
           <h2 className="text-lg font-semibold tracking-wide">{title}</h2>

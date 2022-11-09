@@ -1,11 +1,14 @@
-import { Button, Navbar } from "flowbite-react";
+import { Dropdown, Navbar } from "flowbite-react";
 import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../../assets/logo/iconmonstr-building-33.svg";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
+import useTitle from "../../Hooks/useTitle";
 
 const Header = () => {
+  useTitle("Header");
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -21,15 +24,37 @@ const Header = () => {
   return (
     <Navbar fluid={true} rounded={true}>
       <Navbar.Brand href="https://flowbite.com/">
-        <img src={logo} className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-        <span className="self-center whitespace-nowrap text-2xl font-bold dark:text-white uppercase">
-          Rakib's Consultancy
+        <img
+          src={logo}
+          className="mr-3 h-6 md:hidden lg:h-9"
+          alt="Flowbite Logo"
+        />
+        <span className="self-center whitespace-nowrap md:text-base lg:text-2xl font-bold dark:text-white uppercase">
+          Rakib's <span className="md:block lg:inline-block">Consultancy</span>
         </span>
       </Navbar.Brand>
+
       <div className="flex md:order-2">
-        <Button>Get started</Button>
+        <Dropdown
+          arrowIcon={false}
+          inline={true}
+          label={
+            user && user.photoURL ? (
+              <img
+                className="h-10 w-10 rounded-full"
+                src={user?.photoURL}
+                alt=""
+              />
+            ) : (
+              <FaUserCircle className="h-10 w-10 rounded-full" />
+            )
+          }
+        >
+          <Link className="px-4">View Profile</Link>
+        </Dropdown>
         <Navbar.Toggle />
       </div>
+
       <Navbar.Collapse>
         <NavLink className="font-semibold text-[15px]" to="/">
           Home
@@ -49,7 +74,7 @@ const Header = () => {
               My Reviews
             </NavLink>
             <button
-              className="font-semibold text-[16px]"
+              className="font-semibold text-left text-[16px]"
               onClick={handleLogOut}
             >
               log out

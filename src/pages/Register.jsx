@@ -1,15 +1,19 @@
 import React, { useContext, useEffect, useId, useState } from "react";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../assets/img/6769264_60111-removebg-preview.png";
 import { AuthContext } from "../contexts/AuthProvider";
 import HashLoader from "react-spinners/HashLoader";
 import { toast } from "react-toastify";
+import useTitle from "../Hooks/useTitle";
 
 const Register = () => {
-  const { createUser, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+  useTitle("Register");
+  const { createUser, googleSignIn, gitHubSignIn, updateUserProfile } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   // set loading
   useEffect(() => {
@@ -23,7 +27,7 @@ const Register = () => {
     e.preventDefault();
 
     const form = e.target;
-    const displayName = `${form.fname.vlaue} ${form.lname.value}`;
+    const displayName = `${form.fname.value} ${form.lname.value}`;
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
@@ -39,8 +43,10 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         setError("");
+        handleUpdateUserProfile(displayName, photoURL);
         toast.success("Successfully register your account");
         form.reset();
+        navigate("/");
       })
       .catch((e) => {
         console.error(e);
@@ -76,6 +82,15 @@ const Register = () => {
       });
   };
 
+  // handle update user profile
+  const handleUpdateUserProfile = (displayName, photoURL) => {
+    const profile = {
+      displayName: displayName,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile);
+  };
+
   return (
     <div>
       {loading ? (
@@ -83,19 +98,19 @@ const Register = () => {
           <HashLoader size={150} color="#00F0B5" />
         </div>
       ) : (
-        <div className="grid items-center grid-cols-2 my-20 lg:min-h-[530px]">
-          <div className="flex flex-col justify-center items-center h-full bg-green-300">
+        <div className="grid items-center grid-cols-1 md:grid-cols-2 my-20 lg:min-h-[530px]">
+          <div className="py-8 md:py-0 flex flex-col justify-center items-center h-full bg-green-300">
             <img className="h-64" src={img} alt="" />
-            <h1 className="text-3xl font-bold text-slate-800">
+            <h1 className="text-xl md:text-3xl font-bold text-slate-800">
               Lets Connect With Us
             </h1>
-            <p className="font-semibold mt-2">
+            <p className="font-semibold text-sm md:text-base md:mt-2">
               It should only take you a minute to connect 🙂
             </p>
           </div>
 
-          <div className="bg-green-100 h-full flex items-center">
-            <div className="w-full px-10">
+          <div className="bg-green-100 py-5 px-4 md:px-0 h-full flex items-center">
+            <div className="w-full md:px-10">
               <form onSubmit={handleSubmit}>
                 <div className="flex justify-between mb-5">
                   <div className="input-box w-[46%]">
@@ -171,9 +186,11 @@ const Register = () => {
               </form>
               <div className="social-account mt-8 mb-4">
                 <div className="flex justify-between items-center">
-                  <div className="h-[1px] w-[27%] bg-slate-400"></div>
-                  <div>Sign in with social account</div>
-                  <div className="h-[1px] w-[27%] bg-slate-400"></div>
+                  <div className="h-[1px] w-[23%] lg:w-[27%] bg-slate-400"></div>
+                  <div className="text-xs lg:text-base">
+                    Sign in with social account
+                  </div>
+                  <div className="h-[1px] w-[23%] lg:w-[27%] bg-slate-400"></div>
                 </div>
                 <div className="flex justify-center items-center mt-3">
                   <FaGoogle onClick={handleGoogleSignIn} className="text-3xl" />

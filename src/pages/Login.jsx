@@ -5,8 +5,10 @@ import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../contexts/AuthProvider";
 import HashLoader from "react-spinners/HashLoader";
 import { toast } from "react-toastify";
+import useTitle from "../Hooks/useTitle";
 
 const Login = () => {
+  useTitle("Log in");
   const { googleSignIn, gitHubSignIn, logIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -80,17 +82,17 @@ const Login = () => {
           <HashLoader size={150} color="#00F0B5" />
         </div>
       ) : (
-        <div className="grid items-center grid-cols-2 my-20 min-h-[500px]">
-          <div className="flex flex-col justify-center items-center h-full bg-green-300">
-            <img className="h-64" src={img} alt="" />
+        <div className="grid items-center grid-cols-1 md:grid-cols-2 my-20 min-h-[500px]">
+          <div className="py-8 md:py-0 flex flex-col justify-center items-center h-full bg-green-300">
+            <img className="h-44 md:h-64" src={img} alt="" />
             <h1 className="text-3xl font-bold text-slate-800">
               Log In Your Account
             </h1>
             <p className="font-semibold mt-2">Connect with us again 🙂</p>
           </div>
 
-          <div className="bg-green-100 h-full flex items-center">
-            <div className="w-full px-10">
+          <div className="bg-green-100 h-full py-5 md:py-0 flex items-center">
+            <div className="w-full px-4 md:px-10">
               <form onSubmit={handleSubmit}>
                 <div className="input-box mb-6 w-full">
                   <input
@@ -125,9 +127,11 @@ const Login = () => {
               </form>
               <div className="social-account mt-8 mb-4">
                 <div className="flex justify-between items-center">
-                  <div className="h-[1px] w-[27%] bg-slate-400"></div>
-                  <div>Sign in with social account</div>
-                  <div className="h-[1px] w-[27%] bg-slate-400"></div>
+                  <div className="h-[1px] w-[23%] lg:w-[27%] bg-slate-400"></div>
+                  <div className="text-xs lg:text-base">
+                    Sign in with social account
+                  </div>
+                  <div className="h-[1px] w-[23%] lg:w-[27%] bg-slate-400"></div>
                 </div>
                 <div className="flex justify-center items-center mt-3">
                   <FaGoogle onClick={handleGoogleLogIn} className="text-3xl" />

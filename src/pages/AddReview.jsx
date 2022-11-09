@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthProvider";
+import useTitle from "../Hooks/useTitle";
 
 const AddReview = ({ reviews, setReviews, id }) => {
+  useTitle("Add Review");
   const { user } = useContext(AuthContext);
   const [isDisabled, setIsDisabled] = useState(true);
   const [isReadOnly, setIsReadOnly] = useState(true);
@@ -64,11 +66,11 @@ const AddReview = ({ reviews, setReviews, id }) => {
 
       <form onSubmit={handleAddReview}>
         <textarea
-          className="rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
+          className="h-20 md:h-28 w-80 md:w-[500px] rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
           name="review"
           placeholder="Type here"
-          cols="60"
-          rows="3"
+          // cols="40"
+          // rows="3"
           readOnly={isReadOnly}
         ></textarea>
         <button
