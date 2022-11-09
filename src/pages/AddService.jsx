@@ -25,6 +25,7 @@ const AddService = () => {
       .then((data) => {
         console.log(data);
         toast.success("Successfully add a new service");
+        form.reset();
       });
   };
 

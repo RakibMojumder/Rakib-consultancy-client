@@ -35,6 +35,7 @@ const Login = () => {
         console.log(user);
         setError("");
         toast.success("You successfully logged in");
+        form.reset();
       })
       .catch((e) => {
         console.error(e);

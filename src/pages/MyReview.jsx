@@ -25,7 +25,12 @@ const MyReview = () => {
         reviews
       </h1>
       {reviews.map((review) => (
-        <ReviewCart key={review._id} review={review} />
+        <ReviewCart
+          key={review._id}
+          review={review}
+          reviews={reviews}
+          setReviews={setReviews}
+        />
       ))}
     </div>
   );

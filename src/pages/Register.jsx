@@ -40,6 +40,7 @@ const Register = () => {
         console.log(user);
         setError("");
         toast.success("Successfully register your account");
+        form.reset();
       })
       .catch((e) => {
         console.error(e);

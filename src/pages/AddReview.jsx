@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthProvider";
 
-const AddReview = ({ id }) => {
+const AddReview = ({ reviews, setReviews, id }) => {
   const { user } = useContext(AuthContext);
   const [isDisabled, setIsDisabled] = useState(true);
   const [isReadOnly, setIsReadOnly] = useState(true);
@@ -39,6 +40,12 @@ const AddReview = ({ id }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.success) {
+          toast.success("Successfully add a review");
+          e.target.reset();
+          const newReviews = data.data;
+          setReviews([newReviews, ...reviews]);
+        }
       });
   };
 
@@ -73,7 +80,7 @@ const AddReview = ({ id }) => {
               : "text-white bg-[#00F0B5] transition duration-700 hover:bg-white hover:text-[#00F0B5]"
           }`}
         >
-          {isDisabled ? "Disabled" : "Add review"}
+          Add review
         </button>
       </form>
     </div>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 import AddReview from "./AddReview";
@@ -8,6 +8,7 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const service = useLoaderData().data;
   const location = useLocation();
+  const [reviews, setReviews] = useState([]);
   const { img, title, description, _id } = service;
   console.log(service);
 
@@ -28,7 +29,7 @@ const ServiceDetails = () => {
 
         <div className="h-[1px] mt-20 bg-slate-500"></div>
         {user ? (
-          <AddReview id={_id} />
+          <AddReview reviews={reviews} setReviews={setReviews} id={_id} />
         ) : (
           <div className="h-[300px] flex items-center justify-center">
             <div className="text-center">
@@ -51,7 +52,7 @@ const ServiceDetails = () => {
           </div>
         )}
         <div className="h-[1px] bg-slate-500"></div>
-        <Review id={_id} />
+        <Review reviews={reviews} setReviews={setReviews} id={_id} />
       </div>
       <div className="col-span-2"></div>
     </div>

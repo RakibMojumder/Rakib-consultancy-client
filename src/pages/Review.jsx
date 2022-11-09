@@ -1,9 +1,7 @@
 import { Avatar } from "flowbite-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-const Review = ({ id }) => {
-  const [reviews, setReviews] = useState([]);
-
+const Review = ({ reviews, setReviews, id }) => {
   useEffect(() => {
     fetch(`http://localhost:5000/reviews/${id}`)
       .then((res) => res.json())
@@ -11,7 +9,7 @@ const Review = ({ id }) => {
         console.log(data);
         setReviews(data.data);
       });
-  }, [id]);
+  }, [setReviews, id]);
 
   return (
     <div className="my-20">
