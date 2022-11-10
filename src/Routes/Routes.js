@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                loader: async ({ params }) => await fetch(`http://localhost:5000/services/${params.id}`),
+                loader: async ({ params }) => await fetch(`https://rakib-consultancy-server.vercel.app/services/${params.id}`),
                 element: <ServiceDetails />
             },
             {

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 
 const Review = ({ reviews, setReviews, id }) => {
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${id}`)
+    fetch(`https://rakib-consultancy-server.vercel.app/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

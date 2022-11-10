@@ -1,5 +1,5 @@
 export const jwtVerifyApi = user => {
-    fetch("http://localhost:5000/jwt", {
+    fetch("https://rakib-consultancy-server.vercel.app/jwt", {
         method: "POST",
         headers: {
             "content-type": "application/json",

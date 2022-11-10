@@ -7,7 +7,7 @@ const UpdateReview = ({ review, reviews, setReviews, show, setShow }) => {
     const message = e.target.review.value;
     const date = new Date().toLocaleTimeString();
 
-    fetch(`http://localhost:5000/reviews/${review._id}`, {
+    fetch(`https://rakib-consultancy-server.vercel.app/reviews/${review._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

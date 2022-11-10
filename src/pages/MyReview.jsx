@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { HashLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthProvider";
 import useTitle from "../Hooks/useTitle";
 import ReviewCart from "./ReviewCart";
+import HashLoader from "react-spinners/HashLoader";
 
 const MyReview = () => {
   useTitle("My Review");
@@ -12,11 +12,14 @@ const MyReview = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("user-access-token")}`,
-      },
-    })
+    fetch(
+      `https://rakib-consultancy-server.vercel.app/reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("user-access-token")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           logOut();

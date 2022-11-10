@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ServiceCart from "./ServiceCart";
 import HashLoader from "react-spinners/HashLoader";
 import useTitle from "../Hooks/useTitle";
-import { PhotoProvider, PhotoView } from "react-photo-view";
+import { PhotoProvider } from "react-photo-view";
 
 const Services = () => {
   useTitle("Services");
@@ -10,7 +10,7 @@ const Services = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services`)
+    fetch(`https://rakib-consultancy-server.vercel.app/services`)
       .then((res) => res.json())
       .then((data) => {
         setServices(data.data);

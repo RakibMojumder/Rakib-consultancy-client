@@ -40,7 +40,7 @@ const Login = () => {
         toast.success("You successfully logged in");
         form.reset();
 
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://rakib-consultancy-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -68,7 +68,7 @@ const Login = () => {
         console.log(user);
         setError("");
         toast.success("You successfully logged in");
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://rakib-consultancy-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

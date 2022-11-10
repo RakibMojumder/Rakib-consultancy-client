@@ -16,7 +16,7 @@ const ReviewCart = ({ review, reviews, setReviews }) => {
     const confirm = window.confirm("Are you sure want to delete this review");
 
     if (confirm) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://rakib-consultancy-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

@@ -32,7 +32,7 @@ const AddReview = ({ reviews, setReviews, id }) => {
       date: new Date().toLocaleTimeString(),
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://rakib-consultancy-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

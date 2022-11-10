@@ -15,8 +15,8 @@ const TimeLine = () => {
               </h3>
             </div>
           </div>
-          <div className="relative col-span-12 px-4 space-y-6 sm:col-span-9">
-            <div className="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-700">
+          <div className="relative col-span-12 md:px-4 space-y-6 sm:col-span-9">
+            <div className="col-span-12 space-y-12 relative md:px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-700">
               <div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-[#00F0B5]">
                 <h3 className="text-xl font-semibold tracking-wide">
                   Got awarded from BRB
@@ -24,7 +24,7 @@ const TimeLine = () => {
                 <time className="text-xs tracking-wide uppercase text-gray-400">
                   Dec 2020
                 </time>
-                <p className="mt-3">
+                <p className="mt-3 text-justify md:text-start">
                   It was the spacial day. I got awarded from BRB for
                   contribution to the economy
                 </p>
@@ -36,7 +36,7 @@ const TimeLine = () => {
                 <time className="text-xs tracking-wide uppercase text-gray-400">
                   Jul 2019
                 </time>
-                <p className="mt-3">
+                <p className="mt-3 text-justify md:text-start">
                   At this time its almost becoming a top tax and law consultancy
                   and publishing 5 books and provide service 3000 peoples.
                 </p>
@@ -48,7 +48,7 @@ const TimeLine = () => {
                 <time className="text-xs tracking-wide uppercase text-gray-400">
                   Jan 2016
                 </time>
-                <p className="mt-3">
+                <p className="mt-3 text-justify md:text-start">
                   I am started this consultancy with lot of passion and
                   dedication to serve people about tax and law related problems.
                 </p>

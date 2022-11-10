@@ -16,7 +16,7 @@ const AddService = () => {
       description: form.description.value,
     };
 
-    fetch("http://localhost:5000/services", {
+    fetch("https://rakib-consultancy-server.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",
