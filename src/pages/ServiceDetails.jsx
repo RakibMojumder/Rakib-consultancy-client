@@ -4,7 +4,6 @@ import { AuthContext } from "../contexts/AuthProvider";
 import useTitle from "../Hooks/useTitle";
 import AddReview from "./AddReview";
 import Review from "./Review";
-import ReviewCart from "./ReviewCart";
 
 const ServiceDetails = () => {
   useTitle("Service Details");
@@ -13,7 +12,6 @@ const ServiceDetails = () => {
   const location = useLocation();
   const [reviews, setReviews] = useState([]);
   const { img, title, description, _id } = service;
-  console.log(service);
 
   return (
     <div className="grid grid-cols-12 my-20">

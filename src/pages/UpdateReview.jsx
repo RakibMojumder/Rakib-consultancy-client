@@ -2,9 +2,11 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const UpdateReview = ({ review, reviews, setReviews, show, setShow }) => {
+  console.log(review);
   const handleUpdateReview = (e) => {
     e.preventDefault();
     const message = e.target.review.value;
+
     const date = new Date().toLocaleTimeString();
 
     fetch(`https://rakib-consultancy-server.vercel.app/reviews/${review._id}`, {
@@ -40,6 +42,7 @@ const UpdateReview = ({ review, reviews, setReviews, show, setShow }) => {
           className="h-20 md:h-32 w-80 md:w-[500px] rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
           name="review"
           placeholder="Edit your review"
+          defaultValue={review.review ? review.review : ""}
           required
         ></textarea>
         <button

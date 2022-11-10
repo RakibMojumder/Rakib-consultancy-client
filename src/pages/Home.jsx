@@ -1,4 +1,3 @@
-import { Timeline } from "flowbite-react";
 import React from "react";
 import useTitle from "../Hooks/useTitle";
 import Banner from "./Banner";

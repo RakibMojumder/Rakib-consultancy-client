@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthProvider";
 import useTitle from "../Hooks/useTitle";
@@ -6,18 +6,6 @@ import useTitle from "../Hooks/useTitle";
 const AddReview = ({ reviews, setReviews, id }) => {
   useTitle("Add Review");
   const { user } = useContext(AuthContext);
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [isReadOnly, setIsReadOnly] = useState(true);
-
-  useEffect(() => {
-    if (user) {
-      setIsDisabled(false);
-      setIsReadOnly(false);
-    } else {
-      setIsDisabled(true);
-      setIsReadOnly(true);
-    }
-  }, [user]);
 
   const handleAddReview = (e) => {
     e.preventDefault();
@@ -70,16 +58,11 @@ const AddReview = ({ reviews, setReviews, id }) => {
           className="h-20 md:h-32 w-80 md:w-[500px] rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
           name="review"
           placeholder="Type here"
-          readOnly={isReadOnly}
+          required
         ></textarea>
         <button
           type="submit"
-          disabled={isDisabled}
-          className={`w-[150px] block py-2 mt-4 uppercase text-sm font-bold rounded-full shadow-md text-slate-500 ${
-            isDisabled
-              ? "bg-[#00F0B5]"
-              : "text-white bg-[#00F0B5] transition duration-700 hover:bg-white hover:text-[#00F0B5]"
-          }`}
+          className="px-5 py-1 mt-2 block uppercase text-white text-sm font-bold bg-[#00F0B5] rounded-full shadow-md transition duration-700 hover:bg-white hover:text-[#00F0B5]"
         >
           Add review
         </button>

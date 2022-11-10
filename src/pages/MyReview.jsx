@@ -46,7 +46,7 @@ const MyReview = () => {
 
   return (
     <div
-      className={`my-20 ${
+      className={`my-20 w-[60%] mx-auto ${
         reviews.length === 0 ? "md:min-h-[100px] lg:min-h-[190px]" : ""
       }`}
     >
