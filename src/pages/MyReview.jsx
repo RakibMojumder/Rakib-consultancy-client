@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { HashLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthProvider";
 import useTitle from "../Hooks/useTitle";
@@ -8,6 +9,7 @@ const MyReview = () => {
   useTitle("My Review");
   const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
@@ -26,9 +28,18 @@ const MyReview = () => {
       .then((data) => {
         if (data?.data) {
           setReviews(data.data);
+          setLoading(false);
         }
       });
   }, [user?.email, logOut]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <HashLoader size={150} color="#00F0B5" />
+      </div>
+    );
+  }
 
   return (
     <div className="my-20">
