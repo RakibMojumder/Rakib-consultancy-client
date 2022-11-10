@@ -22,14 +22,14 @@ const Header = () => {
   };
 
   return (
-    <Navbar fluid={true} rounded={true}>
+    <Navbar fluid={true} rounded={true} className="bg-transparent">
       <Navbar.Brand href="https://flowbite.com/">
         <img
           src={logo}
           className="mr-3 h-6 md:hidden lg:block lg:h-9"
           alt="Flowbite Logo"
         />
-        <span className="self-center whitespace-nowrap md:text-base lg:text-2xl font-bold dark:text-white uppercase">
+        <span className="text-center whitespace-nowrap md:text-base lg:text-2xl font-bold dark:text-white uppercase">
           Rakib's <span className="md:block lg:inline-block">Consultancy</span>
         </span>
       </Navbar.Brand>
@@ -39,14 +39,18 @@ const Header = () => {
           arrowIcon={false}
           inline={true}
           label={
-            user && user.photoURL ? (
-              <img
-                className="h-10 w-10 rounded-full"
-                src={user?.photoURL}
-                alt=""
-              />
+            user ? (
+              user.photoURL ? (
+                <img
+                  className="h-10 w-10 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              ) : (
+                <FaUserCircle className="h-10 w-10 rounded-full" />
+              )
             ) : (
-              <FaUserCircle className="h-10 w-10 rounded-full" />
+              ""
             )
           }
         >

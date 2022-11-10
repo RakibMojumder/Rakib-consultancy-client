@@ -1,3 +1,7 @@
+.root-bg {
+    background: rgba(215, 215, 204, 0.464);
+}
+
 .service-cart {
     transition: .3s;
 }

@@ -6,7 +6,7 @@ import Header from '../pages/shared/Header';
 
 const Main = () => {
     return (
-        <div>
+        <div className='root-bg'>
             <div className="w-[90%] md:w-[80%] lg:w-[85%] mx-auto">
                 <Header />
                 <Outlet />

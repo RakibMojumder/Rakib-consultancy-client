@@ -2,7 +2,7 @@ import React from "react";
 
 const Stats = () => {
   return (
-    <section className="p-7 my-20 md:p-8 bg-purple-50">
+    <section className="p-7 my-20 md:p-8">
       <div className="container grid grid-cols-1 gap-6 m-4 mx-auto md:m-0 md:grid-cols-2 xl:grid-cols-3">
         <div className="flex overflow-hidden rounded-lg bg-green-100 text-slate-800">
           <div className="flex items-center justify-center px-4 bg-[#00F0B5] text-gray-800">

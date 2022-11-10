@@ -33,7 +33,7 @@ const ReviewCart = ({ review, reviews, setReviews }) => {
   return (
     <div
       key={review._id}
-      className="mb-8 p-5 md:p-8 bg-gray-100 border rounded-lg relative"
+      className="mb-8 p-5 md:p-8 lg:w-[60%] mx-auto bg-gray-100 border rounded-lg relative"
     >
       <div className="flex justify-between items-center">
         <div className="user-information md:flex">
