@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import UpdateReview from "./UpdateReview";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
+import { reviewDelete } from "../utilities/utils";
 
 const ReviewCart = ({ review, reviews, setReviews }) => {
   const [show, setShow] = useState(false);
@@ -16,17 +17,8 @@ const ReviewCart = ({ review, reviews, setReviews }) => {
     const confirm = window.confirm("Are you sure want to delete this review");
 
     if (confirm) {
-      fetch(`https://rakib-consultancy-server.vercel.app/reviews/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            const remaining = reviews.filter((rev) => rev._id !== id);
-            setReviews(remaining);
-            toast.success("Successfully delete review");
-          }
-        });
+      reviewDelete(id, reviews, setReviews);
+      toast.success("Successfully delete review");
     }
   };
 
@@ -54,19 +46,19 @@ const ReviewCart = ({ review, reviews, setReviews }) => {
           </div>
         </div>
         <div className="update-review-section">
-          <p className="mb-2 text-center text-xs md:text-base md:text-end">
+          <p className="mb-2 text-center text-xs md:text-sm font-semibold md:text-end">
             Time: {review.date}
           </p>
           <div className="flex justify-end md:block md:text-end">
             <FontAwesomeIcon
               onClick={handleShowUpdateReview}
-              className="text-base bg-gray-300 px-2 py-1 rounded-md"
-              icon={faEdit}
+              className="text-xs px-2 py-1 rounded-md border border-slate-500 transition-all hover:bg-gray-300"
+              icon={faPen}
               title="Edit"
             />
             <FontAwesomeIcon
               onClick={() => handleReviewDelete(review._id)}
-              className="text-base bg-gray-300 px-2 py-1 rounded-md ml-3"
+              className="text-xs px-2 py-1 rounded-md border border-slate-500 transition-all hover:bg-gray-300 ml-3"
               icon={faTrash}
               title="Delete"
             />

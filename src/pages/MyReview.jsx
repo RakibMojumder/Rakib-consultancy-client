@@ -45,7 +45,11 @@ const MyReview = () => {
   }
 
   return (
-    <div className="my-20">
+    <div
+      className={`my-20 ${
+        reviews.length === 0 ? "md:min-h-[100px] lg:min-h-[190px]" : ""
+      }`}
+    >
       <h1 className="text-2xl font-semibold text-center my-5 uppercase tracking-wider">
         You give{" "}
         <span className="text-green-400 text-3xl font-extrabold">

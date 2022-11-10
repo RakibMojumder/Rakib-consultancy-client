@@ -4,6 +4,7 @@ import { AuthContext } from "../contexts/AuthProvider";
 import useTitle from "../Hooks/useTitle";
 import AddReview from "./AddReview";
 import Review from "./Review";
+import ReviewCart from "./ReviewCart";
 
 const ServiceDetails = () => {
   useTitle("Service Details");
@@ -28,7 +29,6 @@ const ServiceDetails = () => {
             {description}
           </p>
         </div>
-
         <div className="h-[1px] mt-20 bg-slate-500"></div>
         {user ? (
           <AddReview reviews={reviews} setReviews={setReviews} id={_id} />

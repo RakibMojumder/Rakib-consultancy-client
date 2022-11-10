@@ -29,6 +29,7 @@ const AddReview = ({ reviews, setReviews, id }) => {
       email: user.email,
       img: user.photoURL,
       review: review,
+      userUid: user.uid,
       date: new Date().toLocaleTimeString(),
     };
 
