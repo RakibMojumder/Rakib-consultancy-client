@@ -6,7 +6,7 @@ import { PhotoView } from "react-photo-view";
 const ServiceCart = ({ service }) => {
   const { _id, img, title, fee, description } = service;
   return (
-    <div className="service-cart h-[390px] lg:h-[450px] rounded-md shadow-md bg-green-50 relative">
+    <div className="service-cart h-[390px] md:h-[450px] lg:h-[410px] rounded-md shadow-md bg-green-50 relative">
       <PhotoView src={img}>
         <img
           src={img}
@@ -21,10 +21,10 @@ const ServiceCart = ({ service }) => {
             Fee:{" "}
             <span className="text-[#00F0B5] font-bold text-lg">${fee}</span>
           </p>
-          <p>
+          <p className="text-base">
             <span className="font-semibold mr-1">Rakib's Consultancy</span>
-            {description.length > 75
-              ? description.slice(0, 75) + "..."
+            {description.length > 65
+              ? description.slice(0, 65) + "..."
               : description}
           </p>
         </div>

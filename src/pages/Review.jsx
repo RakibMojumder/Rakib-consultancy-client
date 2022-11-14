@@ -11,7 +11,7 @@ const Review = ({ reviews, setReviews, id }) => {
   }, [setReviews, id]);
 
   return (
-    <div className="my-20">
+    <div className="my-20 lg:w-[70%] lg:mx-auto">
       {reviews.length > 0 ? (
         <>
           <h1 className="text-xl font-semibold mb-4">

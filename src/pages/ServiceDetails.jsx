@@ -27,16 +27,16 @@ const ServiceDetails = () => {
             {description}
           </p>
         </div>
-        <div className="h-[1px] mt-20 bg-slate-500"></div>
+        <div className="h-[1px] mt-20 bg-slate-400"></div>
         {user ? (
           <AddReview reviews={reviews} setReviews={setReviews} id={_id} />
         ) : (
           <div className="h-[300px] flex items-center justify-center">
             <div className="text-center">
-              <h3 className="text-base text-slate-700 font-bold uppercase">
+              <h3 className="text-base font-bold uppercase">
                 You are not logged in 🙂
               </h3>
-              <h1 className="text-2xl font-bold text-slate-700 uppercase mb-3">
+              <h1 className="text-2xl font-bold uppercase mb-3">
                 You need to log in to add review
               </h1>
               <Link
@@ -44,14 +44,14 @@ const ServiceDetails = () => {
                 state={{ from: location }}
                 replace
                 type="submit"
-                className="px-14 py-2 uppercase text-white text-sm font-bold bg-[#00F0B5] rounded-full shadow-md transition duration-700 hover:bg-white hover:text-[#00F0B5] hover:border hover:border-[#00F0B5]"
+                className="px-14 py-2 uppercase text-sm font-bold bg-[#00F0B5] rounded-full shadow-md transition duration-700 hover:bg-white hover:text-[#00F0B5] hover:border hover:border-[#00F0B5]"
               >
                 Log in
               </Link>
             </div>
           </div>
         )}
-        <div className="h-[1px] bg-slate-500"></div>
+        <div className="h-[1px] bg-slate-400"></div>
         <Review reviews={reviews} setReviews={setReviews} id={_id} />
       </div>
       <div className="col-span-2"></div>

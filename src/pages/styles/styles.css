@@ -1,5 +1,6 @@
 .root-bg {
-    background: rgba(215, 215, 204, 0.464);
+    z-index: -999;
+    background: #c7ecee
 }
 
 .service-cart {
@@ -8,6 +9,10 @@
 
 .service-cart:hover {
     transform: scale(1.1);
+}
+
+.hover-animate-btn {
+    z-index: 1000;
 }
 
 .hover-animate-btn::after {

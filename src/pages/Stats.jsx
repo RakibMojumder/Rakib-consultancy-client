@@ -102,9 +102,12 @@ const Stats = () => {
               <path d="M436.574,120H352V64H32V408a64.072,64.072,0,0,0,64,64H288a64.072,64.072,0,0,0,64-64v-8h84.574A59.493,59.493,0,0,0,496,340.574V179.426A59.493,59.493,0,0,0,436.574,120ZM464,340.574A27.457,27.457,0,0,1,436.574,368H320v40a32.036,32.036,0,0,1-32,32H96a32.036,32.036,0,0,1-32-32V96H320v56H436.574A27.457,27.457,0,0,1,464,179.426Z"></path>
             </svg>
           </div>
-          <div className="flex items-center justify-between flex-1 p-3">
+          <div className="flex items-center md:justify-between flex-1 p-3">
             <p className="text-lg md:text-2xl font-semibold">720k</p>
-            <p>Social media followers</p>
+            <p className="ml-5 md:ml-0 w-full md:w-auto text-right">
+              Social media{" "}
+              <span className="sm:block md:inline-block">Followers</span>
+            </p>
           </div>
         </div>
       </div>

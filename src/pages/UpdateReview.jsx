@@ -2,10 +2,13 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const UpdateReview = ({ review, reviews, setReviews, show, setShow }) => {
-  console.log(review);
   const handleUpdateReview = (e) => {
     e.preventDefault();
     const message = e.target.review.value;
+
+    if (review.review === message) {
+      return alert("You do not edit your review");
+    }
 
     const date = new Date().toLocaleTimeString();
 
@@ -21,7 +24,6 @@ const UpdateReview = ({ review, reviews, setReviews, show, setShow }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.success) {
           setShow(!show);
           const remaining = reviews.filter((rev) => rev._id !== review._id);
@@ -39,7 +41,7 @@ const UpdateReview = ({ review, reviews, setReviews, show, setShow }) => {
     <div className="mt-8 ">
       <form onSubmit={handleUpdateReview}>
         <textarea
-          className="h-20 md:h-32 w-80 md:w-[500px] rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
+          className="h-24 md:h-32 w-full mx-auto rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
           name="review"
           placeholder="Edit your review"
           defaultValue={review.review ? review.review : ""}

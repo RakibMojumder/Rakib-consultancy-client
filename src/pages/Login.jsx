@@ -77,7 +77,6 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             localStorage.setItem("user-access-token", data.token);
             navigate(from, { replace: true });
           });
@@ -131,7 +130,7 @@ const Login = () => {
                     required
                   />
                 </div>
-                <div className="input-box mb-6 w-full">
+                <div className="input-box mb-1 w-full">
                   <input
                     className="input-field w-full focus:ring-0"
                     type="password"
@@ -140,6 +139,9 @@ const Login = () => {
                     required
                   />
                 </div>
+                <button className="text-sm mb-6 hover:underline hover:text-[#25be98]">
+                  Forget password?
+                </button>
 
                 {error && <p className="text-red-500 my-4">{error}</p>}
 

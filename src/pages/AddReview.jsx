@@ -41,21 +41,12 @@ const AddReview = ({ reviews, setReviews, id }) => {
   };
 
   return (
-    <div className="review-section my-14">
-      {user ? (
-        <h3 className="text-xl text-slate-700 font-semibold mb-3">
-          Add a review
-        </h3>
-      ) : (
-        <h2 className="uppercase text-xs mb-2">
-          Please log in to add a review{" "}
-          <span className="text-2xl font-semibold text-red-500">*</span>
-        </h2>
-      )}
+    <div className="review-section lg:w-[70%] lg:mx-auto my-14">
+      <h3 className="text-xl font-semibold mb-3">Add a review</h3>
 
       <form onSubmit={handleAddReview}>
         <textarea
-          className="h-20 md:h-32 w-80 md:w-[500px] rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
+          className="h-20 md:h-32 w-80 md:w-full rounded-lg border border-slate-300 focus:border-[#00F0B5] focus:ring-0"
           name="review"
           placeholder="Type here"
           required
