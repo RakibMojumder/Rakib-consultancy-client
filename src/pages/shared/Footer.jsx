@@ -1,9 +1,7 @@
 import React from "react";
-import useTitle from "../../Hooks/useTitle";
 import logoImg from "../../assets/logo/iconmonstr-building-33.svg";
 
 const Footer = () => {
-  useTitle("Footer");
   return (
     <div className="bg-gray-800">
       <footer className="px-4 divide-y text-gray-100 w-[90%] lg:w-[1100px] mx-auto">

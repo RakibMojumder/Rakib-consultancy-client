@@ -32,7 +32,7 @@ const ServiceCart = ({ service }) => {
       <div className="absolute bottom-5 w-full text-center">
         <Link
           to={`/services/${_id}`}
-          className="px-5 py-1 uppercase text-[#00F0B5] text-sm font-semibold bg-white rounded-full shadow-md transition duration-700 hover:bg-[#00F0B5] hover:text-white"
+          className="px-5 py-1 uppercase text-white text-sm font-semibold bg-[#00F0B5] rounded-full shadow-md transition duration-700 hover:bg-white hover:text-[#00F0B5]"
         >
           see details
         </Link>
